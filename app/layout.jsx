@@ -1,6 +1,8 @@
 import '@styles/global.css';
 
 import Nav from '@components/Nav';
+import DeployApp from '@components/DeployApp';
+
 
 
 export const metadata= {
@@ -15,6 +17,7 @@ const RootLayout = ({children}) => {
          
             <main >
                 <Nav/>
+                <DeployApp/>
                 {children}
             </main>
             

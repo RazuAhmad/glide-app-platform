@@ -1,7 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+
 .main{
 background-color: black;
    
-  min-height: 100vh;
+  min-height: 1000vh;
 
 }
 
@@ -14,6 +21,8 @@ background-color: black;
     justify-items: center;
     grid-template-columns:  2fr 3fr 2fr;
     font-size: 18px;
+    position: sticky;
+    
 }
 
 .app-navbar_container-middlepart{
@@ -106,7 +115,7 @@ border: 2px solid #dfdcdc;
         display: none;
     }
     .hamburger-menu{
-        display: block;
+        display: flex;
     }
 }
 
@@ -132,7 +141,7 @@ border: 2px solid #dfdcdc;
     background-color: #fef8f8;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    /* z-index: 1; */
+    
 }
 
 .dropdown-content p {
@@ -164,3 +173,64 @@ border: 2px solid #dfdcdc;
     align-items: center;
 }
 
+
+.hamburger-menu{
+/* position: relative; */ 
+}
+
+.hamburger-menu_toggle-container{
+    position: absolute;
+    background-color: aliceblue;
+    color: black;
+    padding: 20px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: start; */
+    align-items: start;
+    width: 100%;
+ 
+    height: 100%;
+    top: 0;
+    right: 2px;
+    
+
+}
+
+.header_text{
+    font-family: 'Anton', sans-serif;
+}
+
+
+/**
+ * ----------------------------------------
+ * animation scale-up-center
+ * ----------------------------------------
+ */
+
+.scale-up-center {
+	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) backwards;
+	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) backwards;
+}
+
+
+ @-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  

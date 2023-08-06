@@ -1,8 +1,14 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react';
 import {CiSearch, GiHamburgerMenu} from 'react-icons/ci';
 
 const Nav = () => {
+
+  const [toggleMenu,setToggleMenu]=useState(false)
+console.log(toggleMenu);
   return (
  
     <nav className='app-navbar_container'>
@@ -115,7 +121,7 @@ const Nav = () => {
         </div>
         <div className='login-btn'>
          <Link href="/login" >
-         <button type='button' className='login-btn'>Login</button> 
+         <button type='button' className=''>Login</button> 
          </Link>
         </div>
 
@@ -126,8 +132,55 @@ const Nav = () => {
           
         </div>
 
-        <div className='hamburger-menu'>
-        <Image src="/assets/images/hamburgermenu.svg" width="20" height="12" alt='hamburgermenu'/>
+      {/* Hamburger menu */}
+        <div className='hamburger-menu' >
+        {
+          toggleMenu ? ( 
+
+          <Image src="/assets/images/menuclose.svg" width="24" height="24" alt='menuclose' onClick={()=>setToggleMenu((prev)=>!prev)}/>
+
+          ):
+          (
+            <Image src="/assets/images/hamburgermenu.svg" width="20" height="12" alt='hamburgermenu' onClick={()=>setToggleMenu((prev)=>!prev)}/>
+          )
+        }
+
+        {
+          toggleMenu && (
+            <div className='hamburger-menu_toggle-container scale-up-center'>
+              <div className=' flex justify-between'>
+            
+              <Link href="/" className='flex-between'>
+            <Image src="/assets/images/mobileLogo.svg" width="78" height="24" alt='logo' className=''/>
+            </Link>
+
+              
+
+              <div className='flex justify-between items-center '>
+
+              <Link href="/signUp">
+              <button type='button' className='signUp-btn' >Sign Up</button> 
+              </Link>
+
+              <p className='ml-3'><Image src="/assets/images/menuclose.svg" width="30" height="24" alt='menuclose' 
+              style={{backgroundColor:"black", padding:"3px", borderRadius:"100%"}} onClick={()=>setToggleMenu((prev)=>!prev)}/></p>
+
+              </div>
+
+              </div>
+
+              <div className='flex-col justify-between pt-12'>
+              <p>Solutions</p>
+              <p>Templates</p>
+              <p>Product</p>
+              <p>Resources</p>
+              <p>Pricing</p>
+              </div>
+              
+            </div>
+          )
+        }
+
         </div>
       </div>
     </nav>
